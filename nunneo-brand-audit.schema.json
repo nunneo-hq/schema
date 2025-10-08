@@ -1,0 +1,88 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foundry.sweepandco.com/schemas/nunneo-brand-audit.schema.json",
+  "title": "nunNEO Brand Audit Schema",
+  "description": "Schema for validated JSON output from Sweep & Co's nunNEO Brand Resonance Engine.",
+  "type": "object",
+  "properties": {
+    "Score_Summary": { "type": "string" },
+    "Strengths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "description"]
+      }
+    },
+    "Gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "description"]
+      }
+    },
+    "Quick_Wins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "description"]
+      }
+    },
+    "Strategic_Opportunity": { "type": "string" },
+    "Score_Insights": {
+      "type": "object",
+      "properties": {
+        "Recall": { "type": "string" },
+        "Priorities": { "type": "string" },
+        "Value": { "type": "string" },
+        "Consistency": { "type": "string" },
+        "Share": { "type": "string" },
+        "Referral": { "type": "string" },
+        "Unique": { "type": "string" }
+      },
+      "required": ["Recall", "Priorities", "Value", "Consistency", "Share", "Referral", "Unique"]
+    },
+    "Website": {
+      "type": "object",
+      "properties": {
+        "Quick_Win": { "type": "string" },
+        "Opportunity": { "type": "string" },
+        "Sample_Analysis": { "type": "string" }
+      },
+      "required": ["Quick_Win", "Opportunity", "Sample_Analysis"]
+    },
+    "Research_Context_Used": { "type": "string" },
+    "Confidence": {
+      "type": "object",
+      "properties": {
+        "overall": { "type": "number" },
+        "scores_based": { "type": "number" },
+        "qualitative_based": { "type": "number" }
+      },
+      "required": ["overall"]
+    }
+  },
+  "required": [
+    "Score_Summary",
+    "Strengths",
+    "Gaps",
+    "Quick_Wins",
+    "Strategic_Opportunity",
+    "Score_Insights",
+    "Website",
+    "Research_Context_Used",
+    "Confidence"
+  ],
+  "additionalProperties": false
+}

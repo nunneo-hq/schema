@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foundry.sweepandco.com/schemas/nunneo-brand-audit.v2.schema.json",
+  "title": "nunNEO Brand Audit Schema v2",
+  "description": "Validated JSON schema for Sweep & Co’s nunNEO brand resonance audits across all industries.",
+  "type": "object",
+  "properties": {
+    "Industry_Context": {
+      "type": "string",
+      "description": "Detected industry classification for the audited brand (e.g., Healthcare, B2B SaaS, Financial Services, Consumer Tech, Other)."
+    },
+    "Score_Summary": { "type": "string" },
+    "Strengths": { "$ref": "#/$defs/sectionArray" },
+    "Gaps": { "$ref": "#/$defs/sectionArray" },
+    "Quick_Wins": { "$ref": "#/$defs/sectionArray" },
+    "Strategic_Opportunity": { "type": "string" },
+    "Score_Insights": { "$ref": "#/$defs/scoreInsights" },
+    "Website": { "$ref": "#/$defs/website" },
+    "Research_Context_Used": { "type": "string" },
+    "Confidence": { "$ref": "#/$defs/confidence" }
+  },
+  "required": [
+    "Industry_Context",
+    "Score_Summary",
+    "Strengths",
+    "Gaps",
+    "Quick_Wins",
+    "Strategic_Opportunity",
+    "Score_Insights",
+    "Website",
+    "Research_Context_Used",
+    "Confidence"
+  ],
+  "$defs": {
+    "sectionArray": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "description"]
+      }
+    },
+    "scoreInsights": {
+      "type": "object",
+      "properties": {
+        "Recall": { "type": "string" },
+        "Priorities": { "type": "string" },
+        "Value": { "type": "string" },
+        "Consistency": { "type": "string" },
+        "Share": { "type": "string" },
+        "Referral": { "type": "string" },
+        "Unique": { "type": "string" }
+      },
+      "required": ["Recall", "Priorities", "Value", "Consistency", "Share", "Referral", "Unique"]
+    },
+    "website": {
+      "type": "object",
+      "properties": {
+        "Quick_Win": { "type": "string" },
+        "Opportunity": { "type": "string" },
+        "Sample_Analysis": { "type": "string" }
+      },
+      "required": ["Quick_Win", "Opportunity", "Sample_Analysis"]
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "overall": { "type": "number" },
+        "scores_based": { "type": "number" },
+        "qualitative_based": { "type": "number" }
+      },
+      "required": ["overall"]
+    }
+  },
+  "additionalProperties": false
+}
