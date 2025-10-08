@@ -1,0 +1,36 @@
+name: Update Schema Index
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.schema.json'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate index.json
+        run: |
+          npm install
+          node update-index.mjs
+
+      - name: Commit and push index.json
+        run: |
+          git config user.name "nunNEO Bot"
+          git config user.email "bot@nunneo.io"
+          git add index.json
+          git commit -m "Auto-update index.json [skip ci]" || echo "No changes to commit"
+          git push
