@@ -14,3 +14,32 @@ This GitHub Pages deployment connects the web-based interface (via Tally + Zapie
 
 ## ⚙️ Repository Structure
 
+# 🧠 nunNEO | JSON Schema Registry  
+**Host:** [schema.nunneo.io](https://schema.nunneo.io)
+
+This repository hosts the live JSON Schemas for **Sweep & Co’s nunNEO Brand Resonance Engine**.  
+Schemas served here are used by **Zapier**, **Foundry**, and **OpenAI GPT schema validation** to ensure structured, reliable outputs across all audits.
+
+---
+
+## 🧩 Current Schemas
+
+| Schema Name | Version | Description | Live URL | Last Updated |
+|--------------|----------|--------------|-----------|---------------|
+| **nunneo-brand-audit** | v1.0.0 | Legacy schema for healthcare audits | [View](https://schema.nunneo.io/nunneo-brand-audit.schema.json) | 2025-10-07 |
+| **nunneo-brand-audit** | v2.0.0 | Industry-adaptive schema (Healthcare, SaaS, Finance, etc.) | [View](https://schema.nunneo.io/nunneo-brand-audit.v2.schema.json) | 2025-10-08 |
+
+---
+
+## ⚙️ Usage (Zapier + OpenAI GPT)
+
+To use a schema from this registry, set the `response_format` parameter in your **Zapier GPT step** as follows:
+
+```json
+"response_format": {
+  "type": "json_schema",
+  "json_schema": {
+    "name": "nunneo_brand_audit_v2",
+    "schema_url": "https://schema.nunneo.io/nunneo-brand-audit.v2.schema.json"
+  }
+}
